@@ -7,10 +7,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		store = Store.find(params[???])
+		store = Store.find_by(to_search_s: params["storeSearchString"])
 		user = User.find(params["id"])
-		user.store_id = store.id
-		user.save
+		if user
+			user.store_id = store.id
+			user.save
+		end
 	end
 
 end
