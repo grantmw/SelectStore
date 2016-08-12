@@ -8,11 +8,12 @@
 }
 
 .profile {
-	display: none
+	display: none;
 }
 
 li {
-	border-bottom: 4px solid black;	
+	border-bottom: 1px solid black;
+	font-size: 75%;	
 }
 
 table {
