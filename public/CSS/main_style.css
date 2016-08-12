@@ -1,23 +1,19 @@
-* {
-	font-family: 'Roboto';
-	font-size: 110%;
-}
-
-.ui-autocomplete {
-	border: 3px;
-}
-
-.profile {
+.profile-container {
 	display: none;
+}
+
+html {
+	background-color: #f3f6f7;
+}
+
+* {
+	font-family: 'Montserrat';
+	font-size: 110%;
 }
 
 li {
 	border-bottom: 1px solid black;
 	font-size: 75%;	
-}
-
-table {
-	width: 70%;
 }
 
 .main-container {
@@ -27,26 +23,89 @@ table {
 }
 
 .selection-container {
-	background-color: red;
+	background-color: white;
 	position: relative;
 	margin: auto;
 	width: 50%;
+	border-radius: 10px;
 }
 
 .welcome {
 	text-align: left;
-	margin-left: 11%;
+	margin-left: 10%;
+	margin-bottom: 3%;
+	color: #00a8c6;
+}
+
+.user-message{
+	font-weight: bold;
+	color: black;
+	margin-left: -4%;
+}
+
+.profile-container {
+	background-color: white;
+	position: relative;
+	margin: auto;
+	width: 50%;
+	border-radius: 10px;
+	padding: 2px;
+}
+
+.profile-header {
+	font-weight: bold;
+	font-size: 40px;
+	color: #25bc71;
+}
+
+.selected-store{
+	text-align: left;
+	margin-left: 3%;
+	margin-bottom: 5%;
+}
+
+.ui-menu .ui-menu-item {
+	padding-left: 2%;
+}
+
+.ui-autocomplete .ui-menu-item:hover,
+.ui-autocomplete .ui-menu-item.ui-state-focus{
+    background-color: #00a8c6;
+    background-image: none;
+    color: #fff;
+}
+
+.ui-widget input {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline:none;
 }
 
 label {
-	font-size: 80%
+	font-size: 80%;
+	color: #25bc71;
 }
 
-#ui-id-1 {
-	width: 25%;
+button {
+	background-color: #00a8c6;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+} 
+
+hr {
+	width: 85%;
 }
-
-h3, h5 {
-
-}
-

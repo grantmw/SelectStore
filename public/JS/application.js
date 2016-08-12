@@ -7,10 +7,15 @@ $(document).ready(function(){
 		select: function( event, ui ) {
 			assignStore(ui.item.value)
 		},
+		open: function(event, ui) {
+	        var ul = $(this).autocomplete('widget'),offset=ul.offset();
+	        ul.offset({top:offset.top+30});
+		}
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li>" )
-        .append( "<div>" + dropdownBuilder(item.value) + "</div>" )
+    	var storeArray = item.value.split(",");
+    	return $( "<li>" )
+        .append( "<div>" + storeInfoBuilder(storeArray) + "</div>" )
         .appendTo( ul );
     };
 });
@@ -35,7 +40,8 @@ var assignStore = function(storeSearchString){
 		method: "PUT",
 		data: {storeSearchString: storeSearchString}
 	}).done(function(response){
-		$(".selected-store").html("Your Selected Store: " + "<br>" + selectedStoreBuilder(response["to_search_s"].split(",")));
+		var selectedStoreArray = response["to_search_s"].split(",")
+		$(".selected-store").html(storeInfoBuilder(selectedStoreArray));
 		swapHandler();
 	});
 };
@@ -44,18 +50,14 @@ var getUser = function(id){
 	$.ajax({
 		url:"http://localhost:3000/users/" + id.toString()
 	}).done(function(response){
-		$(".welcome").html("Hey " + response["name"] + "!" + "<br>" + "Search and select your store!");
+		$(".user-message").html("Hey " + response["name"] + "!" + "<br>");
 	});
 };
 
-var selectedStoreBuilder = function(searchArray) {
-	return `<h3>${searchArray[0]}</h3><h5>${searchArray[1]}</h5><h5>${searchArray[2]}, ${searchArray[3]} ${searchArray[4]} </h5>`;
+var storeInfoBuilder = function(searchArray) {
+	return `${searchArray[0]}<br>${searchArray[1]}<br>${searchArray[2]}, ${searchArray[3]} ${searchArray[4]}`;
 };
 
-var dropdownBuilder = function(string) {
-	var searchArray = string.split(",");
-	return `${searchArray[0]}<br>${searchArray[1]}<br>${searchArray[2]} ${searchArray[3]}, ${searchArray[4]}`;
-};
 
 $("button").on("click", function(){
 	swapHandler();
@@ -64,6 +66,6 @@ $("button").on("click", function(){
 });
 
 var swapHandler = function() {
-	$(".profile").toggle();
+	$(".profile-container").toggle();
 	$(".selection-container").toggle();
 };
