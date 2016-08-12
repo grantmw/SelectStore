@@ -1,8 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-
-      t.timestamps null: false
+    	t.string :name
+   	  	t.integer :store_id
+      	t.timestamps null: false
     end
   end
 end
