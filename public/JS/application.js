@@ -27,15 +27,17 @@ var assignStore = function(storeSearchString){
 };
 
 $(document).ready(function(){
-	console.log("javascript connnected")
 
 	getStores();
-	assignStore("Starbucks, 333 O'Farrell St., San Francisco, CA, 94102, US, 4157711400 California")
 	$("#stores").autocomplete({
 
 		source: searchTerms,
-		minLength: 1,
+		minLength: 3,
+		select: function( event, ui ) {
+			assignStore(ui.item.value)
+		}
 		
     });
+
 });
 
