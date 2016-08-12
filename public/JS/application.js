@@ -29,6 +29,15 @@ var assignStore = function(storeSearchString){
 		method: "PUT",
 		data: {storeSearchString: storeSearchString}
 	}).done(function(response){
-		$(".profile").append("Your Store: " + "<br>" + response)
+		console.log(response["to_search_s"].split(","))
+		$(".profile")
+			.append("Your Store: " + "<br>" + responseBuilder(response["to_search_s"].split(",")))
+			.css("display","block")
+		$(".ui-widget")
+			.css("display","none")
 	});
 };
+
+var responseBuilder = function(searchArray) {
+  return "<h3>" + searchArray[0] + "</h3><h5>" + searchArray[1] + "</h5><h5>" + searchArray[1] + searchArray[2] + ", " + searchArray[3] + "</h5>"
+}

@@ -1,0 +1,39 @@
+.ui-autocomplete {
+	border: 0px;
+}
+
+.profile {
+	display: none
+}
+
+li {
+	border-bottom: 4px solid black;	
+}
+
+table {
+	width: 70%;
+}
+
+.main-container {
+	margin-top: 10%;
+	text-align: center;
+	position: relative;
+	overflow: auto;	
+}
+
+* {
+	font-family: 'Roboto';
+	font-size: 110%;
+}
+
+#ui-id-1 {
+	width: 25%;
+}
+
+h3, h5 {
+
+}
+
+.hello {
+	color: red;
+}
