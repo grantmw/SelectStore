@@ -44,7 +44,7 @@ var getUser = function(id){
 	$.ajax({
 		url:"http://localhost:3000/users/" + id.toString()
 	}).done(function(response){
-		$(".welcome").html("Hello " + response["name"] + "!" + "<br>" + "Select your store!");
+		$(".welcome").html("Hey " + response["name"] + "!" + "<br>" + "Search and select your store!");
 	});
 };
 
@@ -65,5 +65,5 @@ $("button").on("click", function(){
 
 var swapHandler = function() {
 	$(".profile").toggle();
-	$(".ui-widget").toggle();
+	$(".selection-container").toggle();
 };
