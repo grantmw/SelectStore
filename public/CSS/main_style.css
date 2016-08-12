@@ -1,5 +1,10 @@
+* {
+	font-family: 'Roboto';
+	font-size: 110%;
+}
+
 .ui-autocomplete {
-	border: 0px;
+	border: 3px;
 }
 
 .profile {
@@ -21,10 +26,6 @@ table {
 	overflow: auto;	
 }
 
-* {
-	font-family: 'Roboto';
-	font-size: 110%;
-}
 
 #ui-id-1 {
 	width: 25%;
