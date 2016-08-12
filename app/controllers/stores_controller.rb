@@ -1,9 +1,6 @@
 class StoresController < ApplicationController
 	def index
 		stores = Store.all
-		obj = {
-			stores: stores
-		}
-		render json: obj, status: :created
+		render json: stores.to_json, status: :created
 	end
 end

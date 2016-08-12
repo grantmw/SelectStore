@@ -1,18 +1,26 @@
+$(document).ready(function(){
+	getStores();
+	$("#stores").autocomplete({
+		source: searchTerms,
+		minLength: 3,
+		select: function( event, ui ) {
+			assignStore(ui.item.value)
+		}
+    });
+});
 
-var allStoreObjects;
-var searchTerms = [];
+var allStoreObjects,
+	searchTerms = [];
 
 var getStores = function (){
-
 	$.ajax({
 		url:"http://localhost:3000/stores",
 	}).done(function(response){
-		allStoreObjects = response["stores"]
+		allStoreObjects = response
 		for (var i=0; i<allStoreObjects.length; i++){
             searchTerms.push(allStoreObjects[i]["to_search_s"])
         }
 	});
-
 };
 
 var assignStore = function(storeSearchString){
@@ -21,23 +29,6 @@ var assignStore = function(storeSearchString){
 		method: "PUT",
 		data: {storeSearchString: storeSearchString}
 	}).done(function(response){
-		console.log(response)
-	})
-
+		$(".profile").append("Your Store: " + "<br>" + response)
+	});
 };
-
-$(document).ready(function(){
-
-	getStores();
-	$("#stores").autocomplete({
-
-		source: searchTerms,
-		minLength: 3,
-		select: function( event, ui ) {
-			assignStore(ui.item.value)
-		}
-		
-    });
-
-});
-

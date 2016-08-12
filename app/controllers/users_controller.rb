@@ -1,20 +1,13 @@
 class UsersController < ApplicationController
-
 	def show
-		p params
-		user = User.find(params["id"])
+		user = User.find(params[:id])
 		render json: user, status: :created
 	end
 
 	def update
-		store = Store.find_by(to_search_s: params["storeSearchString"])
-		user = User.find(params["id"])
-		your_store = {search_term: store.to_search_s}
-		if user
-			user.store_id = store.id
-			user.save
-			render json: your_store, status: :created
-		end
+		store = Store.find_by(to_search_s: params[:storeSearchString])
+		user = User.find(params[:id])
+		user.update(store_id: store.id)
+		render json: store.to_json, status: :created
 	end
-
 end
