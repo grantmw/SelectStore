@@ -1,11 +1,12 @@
 $(document).ready(function(){
 	getStores();
+	getUser(1);
 	$("#stores").autocomplete({
 		source: searchTerms,
 		minLength: 3,
 		select: function( event, ui ) {
 			assignStore(ui.item.value)
-		}
+		},
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
       return $( "<li>" )
@@ -36,6 +37,14 @@ var assignStore = function(storeSearchString){
 	}).done(function(response){
 		$(".selected-store").html("Your Selected Store: " + "<br>" + selectedStoreBuilder(response["to_search_s"].split(",")));
 		swapHandler();
+	});
+};
+
+var getUser = function(id){
+	$.ajax({
+		url:"http://localhost:3000/users/" + id.toString()
+	}).done(function(response){
+		$(".welcome").html("Hello " + response["name"] + "!" + "<br>" + "Select your store!");
 	});
 };
 
