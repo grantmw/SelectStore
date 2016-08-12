@@ -54,7 +54,7 @@ li {
 
 .profile-header {
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 160%;
 	color: #25bc71;
 }
 
@@ -101,7 +101,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 60%;
     border-radius: 25px;
     cursor: pointer;
 } 
